@@ -23,13 +23,10 @@ getCount();
 
 
 // Testing
-it('assertUserCount', () => {
-  // eslint-disable-next-line jest/valid-expect-in-promise
-  someAsyncFunction().then((data) => {
-    console.log(data === 5);
-    expect(data).toBe(5);
-  });
-});
+it('assertUserCount', () => someAsyncFunction().then((data) => {
+  console.log(data === 5);
+  expect(data).toBe(5);
+}));
 
 it('getCount', async () => {
   const op = await someAsyncFunction();
