@@ -1,3 +1,16 @@
 {
-  "author": "Swarup"
+  "author": "Swarup",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "eslint-plugin-jest": "^22.0.0",
+    "jest": "^23.6.0"
+  }
 }

@@ -1,22 +1,17 @@
 
 
-var add = function (a,num) {
-    return a + num;
+function add(a, num) {
+  return a + num;
 }
 
 
-var multiply = function(a,num) {
-    return a * num;
+function multiply(a, num) {
+  return a * num;
 }
 
 
+const addNumbers = nums => nums.reduce(add);
 
-var addNumbers = (nums) => {
-    return nums.reduce(add);
-}
+const multiplyNumbers = nums => nums.reduce(multiply);
 
-var multiplyNumbers = (nums) => {
-    return nums.reduce(multiply)
-}
-
-module.exports = {addNumbers , multiplyNumbers}
+module.exports = { addNumbers, multiplyNumbers };
