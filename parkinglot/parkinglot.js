@@ -26,12 +26,4 @@ const createParkingLot = ({ size }) => {
   };
 };
 
-const createCar = config => ({
-  regNumber: config.regNumber,
-  color: config.color,
-});
-
-module.exports = {
-  createParkingLot,
-  createCar,
-};
+module.exports = { createParkingLot };

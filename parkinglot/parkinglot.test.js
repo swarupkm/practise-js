@@ -1,4 +1,5 @@
-import { createParkingLot, createCar } from './parkinglot';
+const { createParkingLot } = require('./parkinglot');
+const { createCar } = require('./car');
 
 describe('parkinglot', () => {
   it('should create a parking lot of certain size', () => {
@@ -17,7 +18,7 @@ describe('parkinglot', () => {
   it('should thow error if parking lot is full and car is parked', () => {
     const lot = createParkingLot({ size: 1 });
     const car1 = createCar({ regNumber: '123123', color: 'white' });
-    const car2 = createCar({ regNumber: '321321', color: 'black' });
+    const car2 = createCar({ regNumber: '321321', color: 'blue' });
     lot.park(car1);
     expect(() => { lot.park(car2); }).toThrow();
   });
