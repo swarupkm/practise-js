@@ -1,4 +1,4 @@
-const { compose } = require('../compose');
+const { compose } = require('./compose');
 
 describe('compose', () => {
   it('should compose a function righto left', () => {
