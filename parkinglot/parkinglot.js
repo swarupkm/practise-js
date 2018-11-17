@@ -1,17 +1,17 @@
 const createParkingLot = ({ size }) => {
-  const NO_CAR = null;
+  const EMPTY = null;
   let availableSlots = size;
   const lot = {};
-  for (let i = 1; i <= size; i += 1) { lot[i] = NO_CAR; }
+  for (let i = 1; i <= size; i += 1) { lot[i] = EMPTY; }
 
   return {
-    size: () => Object.keys(lot).length,
+    size: Object.keys(lot).length,
 
     park: (car) => {
       if (availableSlots === 0) throw Error('Parking Lot is Full');
 
       for (let i = 1; i <= size; i += 1) {
-        if (lot[i] === NO_CAR) {
+        if (lot[i] === EMPTY) {
           lot[i] = car;
           availableSlots -= 1;
           return;
