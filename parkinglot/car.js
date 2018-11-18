@@ -2,7 +2,7 @@ function validateColor(color) {
   if (!color) throw Error();
 
   const validColorList = ['white', 'blue', 'red'];
-  if (!validColorList.includes(color)) throw Error();
+  if (!validColorList.includes(color.toLowerCase())) throw Error();
 }
 
 function validateRegNumber(regNumber) {

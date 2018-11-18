@@ -1,7 +1,7 @@
-const { createParkingLot } = require('./parkinglot');
+const { createParkingLot } = require('./parkingLot');
 const { createCar } = require('./car');
 
-describe('parkinglot', () => {
+describe('parkingLot', () => {
   it('should create a parking lot of certain size', () => {
     const lot = createParkingLot({ size: 6 });
     expect(lot.size).toBe(6);
@@ -10,8 +10,10 @@ describe('parkinglot', () => {
   it('should park car in a parking lot ', () => {
     const lot = createParkingLot({ size: 6 });
     const car = createCar({ regNumber: '123123', color: 'white' });
+    expect(lot.nextAvailableSlot()).toBe(1);
     lot.park(car);
     expect(lot.availableSlots()).toBe(5);
+    expect(lot.nextAvailableSlot()).toBe(2);
     expect(lot.getCarAtSlot(1)).toEqual(car);
   });
 
@@ -21,6 +23,13 @@ describe('parkinglot', () => {
     const car2 = createCar({ regNumber: '321321', color: 'blue' });
     lot.park(car1);
     expect(lot.availableSlots()).toBe(0);
+    expect(lot.nextAvailableSlot()).toBeNull();
     expect(() => { lot.park(car2); }).toThrow();
+  });
+
+  it('should leave a car and make slot empty', () => {
+    const lot = createParkingLot({ size: 1 });
+    lot.leave(1);
+    expect(lot.getCarAtSlot(1)).toBeNull();
   });
 });
