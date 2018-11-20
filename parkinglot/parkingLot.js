@@ -28,7 +28,12 @@ const createParkingLot = ({ size }) => {
       return null;
     },
 
-    leave: slotNumber => lot[slotNumber] === EMPTY,
+    leave: (slotNumber) => {
+      if (lot[slotNumber]) {
+        lot[slotNumber] = EMPTY;
+        availableSlots += 1;
+      }
+    },
 
     availableSlots: () => availableSlots,
 

@@ -29,7 +29,21 @@ describe('parkingLot', () => {
 
   it('should leave a car and make slot empty', () => {
     const lot = createParkingLot({ size: 1 });
+
+    lot.park({ regNumber: '123123', color: 'white' });
     lot.leave(1);
+
+    expect(lot.availableSlots()).toBe(1);
+    expect(lot.getCarAtSlot(1)).toBeNull();
+  });
+
+  it('should not try to empty the slot if it already empty', () => {
+    const lot = createParkingLot({ size: 1 });
+
+    lot.leave(1);
+    lot.leave(1);
+
+    expect(lot.availableSlots()).toBe(1);
     expect(lot.getCarAtSlot(1)).toBeNull();
   });
 });
